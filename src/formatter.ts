@@ -12,7 +12,7 @@ const getBinaryPath = (): string => {
             built = 'x86_64-apple-darwin'
             break
         case 'win32':
-            built = ''
+            built = 'x86_64-pc-windows-gnu.exe'
             break
     }
     return `${getExtension()?.extensionPath}/bin/silqfmt-${built}`
