@@ -1,9 +1,6 @@
 import * as vscode from 'vscode'
 import * as cp from 'child_process'
-
-const getExtension = (): vscode.Extension<any> | undefined => {
-    return vscode.extensions.getExtension('mamoruds.silqfmt-vscode')
-}
+import * as utils from './utils'
 
 const getBinaryPath = (): string => {
     let built = 'x86_64-unknown-linux-gnu'
@@ -15,7 +12,7 @@ const getBinaryPath = (): string => {
             built = 'x86_64-pc-windows-gnu.exe'
             break
     }
-    return `${getExtension()?.extensionPath}/bin/silqfmt-${built}`
+    return `${utils.getExtensionPath()}/bin/silqfmt-${built}`
 }
 
 export const formatter = async (
